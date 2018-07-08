@@ -1,6 +1,10 @@
 {
-    "plugins" : ["custom-favicon"],
-    "pluginsConfig" : {
-        "favicon": "images/logo.png"
-    }
+	"language": "ja",
+	"title": "チームラボオンラインスキルアップ課題",
+	"description": "チームラボのオンラインスキルアップ課題の資料ページです。",
+	"author": "teamLab inc",
+	"plugins" : ["custom-favicon", "hide-published-with"],
+	"pluginsConfig" : {
+		"favicon": "images/logo.png"
+	}
 }
