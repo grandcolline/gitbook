@@ -15,8 +15,8 @@ jobs:
       name: ls -al
       command: ls -al
    - run:
-      name: init
-      command: gitbook init
+      name: plugin install
+      command: gitbook install
    - run:
       name: build
       command: gitbook build
