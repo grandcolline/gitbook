@@ -14,22 +14,22 @@ jobs:
       - run:
           name: build
           command: gitbook build
-#  deploy:
-#    docker:
-#      - image: alpine/git
-#        environment:
-#          TZ: /usr/share/zoneinfo/Asia/Tokyo
-#    working_directory: /gitbook
-#    steps:
-#      - run:
-#        name: test
-#        command: ls -l
-#      - run:
-#        name: cd
-#        command: _book
-#      - run:
-#        name: test2
-#        command: ls -l
+  deploy:
+    docker:
+      - image: alpine/git
+        environment:
+          TZ: /usr/share/zoneinfo/Asia/Tokyo
+    working_directory: /gitbook
+    steps:
+      - run:
+          name: test
+          command: ls -l
+      - run:
+          name: cd
+          command: _book
+      - run:
+          name: test2
+          command: ls -l
 
 workflows:
   version: 2
@@ -39,9 +39,9 @@ workflows:
           filters:
             branches:
               only: master 
-#      - deploy:
-#        requires:
-#          - build
-#        filters:
-#          branches:
-#            only: master 
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master 
