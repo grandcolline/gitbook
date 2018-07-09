@@ -11,7 +11,7 @@ jobs:
       - run:
         name: plugin install
         command: gitbook install
-     - run:
+      - run:
         name: build
         command: gitbook build
   deploy:
