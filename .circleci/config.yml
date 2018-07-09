@@ -1,36 +1,35 @@
 version: 2
 jobs:
- build:
-  docker:
-   - image: billryan/gitbook
-  environment:
-   TZ: /usr/share/zoneinfo/Asia/Tokyo
-  working_directory: /gitbook
-  steps:
-   - checkout
-   - run:
-      name: plugin install
-      command: gitbook install
-   - run:
-      name: build
-      command: gitbook build
- deploy:
-  docker:
-   - image: alpine/git
-  environment:
-   TZ: /usr/share/zoneinfo/Asia/Tokyo
-  working_directory: /gitbook
-  steps:
-   - run:
-      name: test
-      command: ls -l
-   - run:
-      name: cd
-      command: _book
-   - run:
-      name: test2
-      command: ls -l
-
+  build:
+    docker:
+      - image: billryan/gitbook
+    environment:
+      TZ: /usr/share/zoneinfo/Asia/Tokyo
+    working_directory: /gitbook
+    steps:
+      - checkout
+      - run:
+        name: plugin install
+        command: gitbook install
+     - run:
+        name: build
+        command: gitbook build
+  deploy:
+    docker:
+      - image: alpine/git
+    environment:
+      TZ: /usr/share/zoneinfo/Asia/Tokyo
+    working_directory: /gitbook
+    steps:
+      - run:
+        name: test
+        command: ls -l
+      - run:
+        name: cd
+        command: _book
+      - run:
+        name: test2
+        command: ls -l
 
 workflows:
   version: 2
@@ -41,6 +40,8 @@ workflows:
             branches:
               only: master 
       - deploy:
-          filters:
-            branches:
-              only: master 
+        requires:
+          - build
+        filters:
+          branches:
+          only: master 
