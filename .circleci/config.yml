@@ -18,7 +18,7 @@ jobs:
     docker:
       - image: alpine/git
         environment:
-        TZ: /usr/share/zoneinfo/Asia/Tokyo
+          TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: /gitbook
     steps:
       - run:
