@@ -3,8 +3,8 @@ jobs:
   build:
     docker:
       - image: billryan/gitbook
-    environment:
-      TZ: /usr/share/zoneinfo/Asia/Tokyo
+        environment:
+          TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: /gitbook
     steps:
       - checkout
@@ -17,8 +17,8 @@ jobs:
   deploy:
     docker:
       - image: alpine/git
-    environment:
-      TZ: /usr/share/zoneinfo/Asia/Tokyo
+        environment:
+        TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: /gitbook
     steps:
       - run:
