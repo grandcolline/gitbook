@@ -1,0 +1,34 @@
+version: 2
+jobs:
+ build:
+  docker:
+   - image: billryan/gitbook
+  environment:
+   TZ: /usr/share/zoneinfo/Asia/Tokyo
+  working_directory: /gitbook
+  steps:
+   - checkout
+   - run:
+      name: test.
+      command: echo "hoge"
+   - run:
+      name: ls -al
+      command: ls -al
+   - run:
+      name: init
+      command: gitbook init
+   - run:
+      name: build
+      command: gitbook build
+   - run:
+      name: ls -al 2
+      command: ls -al
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master 
