@@ -9,26 +9,36 @@ jobs:
   steps:
    - checkout
    - run:
-      name: test.
-      command: echo "hoge"
-   - run:
-      name: ls -al
-      command: ls -al
-   - run:
       name: plugin install
       command: gitbook install
    - run:
       name: build
       command: gitbook build
+ deploy:
+  environment:
+   TZ: /usr/share/zoneinfo/Asia/Tokyo
+  working_directory: /gitbook
+  steps:
    - run:
-      name: ls -al 2
-      command: ls -al
+      name: test
+      command: ls -l
+   - run:
+      name: cd
+      command: _book
+   - run:
+      name: test2
+      command: ls -l
+
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - build:
+          filters:
+            branches:
+              only: master 
+      - deploy:
           filters:
             branches:
               only: master 
