@@ -8,8 +8,5 @@
 	"plugins" : ["custom-favicon", "hide-published-with"],
 	"pluginsConfig" : {
 		"favicon": "images/logo.png"
-	},
-	"structure": {
-		"readme": "top.md"
 	}
 }
