@@ -34,8 +34,14 @@ jobs:
           name: install
           command: npm install
       - run:
+          name: configset
+          command: git config --global user.name  "CircleCI"
+      - run:
+          name: configset2
+          command: git config --global user.email "circleci@gh-pages.com"
+      - run:
           name: install
-          command: yes | npm run deploy
+          command: npm run deploy
 
 workflows:
   version: 2
