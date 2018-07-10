@@ -20,7 +20,7 @@ jobs:
             - .
   deploy:
     docker:
-      - image: alpine/git
+      - image: node:latest
         environment:
           TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: /gitbook
@@ -31,11 +31,11 @@ jobs:
           name: test
           command: ls -l
       - run:
-          name: cd
-          command: cd _book
+          name: install
+          command: npm install
       - run:
-          name: test2
-          command: ls -l
+          name: install
+          command: npm run deploy
 
 workflows:
   version: 2
