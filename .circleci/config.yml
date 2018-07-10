@@ -32,7 +32,7 @@ jobs:
           command: ls -l
       - run:
           name: cd
-          command: _book
+          command: cd _book
       - run:
           name: test2
           command: ls -l
