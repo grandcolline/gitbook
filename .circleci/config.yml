@@ -41,7 +41,13 @@ jobs:
           command: touch ~/.ssh/known_hosts ; chmod 644 ~/.ssh/known_hosts
       - run:
           name: configset2
-          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+		  command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run:
+          name: configset
+          command: git config --global user.name  "CircleCI"
+      - run:
+          name: configset2
+          command: git config --global user.email "circleci@gh-pages.com"
       - run:
           name: deploy
           command: npm run deploy
