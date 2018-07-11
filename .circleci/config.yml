@@ -40,8 +40,11 @@ jobs:
           name: configset2
           command: git config --global user.email "circleci@gh-pages.com"
       - run:
+          name: ssh git
+          command: yes | ssh -T git@github.com
+      - run:
           name: deploy
-          command: yes | gh-pages -d _book
+          command: npm run deploy
 
 workflows:
   version: 2
