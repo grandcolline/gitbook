@@ -40,8 +40,8 @@ jobs:
           name: configset2
           command: git config --global user.email "circleci@gh-pages.com"
       - run:
-          name: install
-          command: npm run deploy
+          name: deploy
+          command: yes | gh-pages -d _book
 
 workflows:
   version: 2
