@@ -6,5 +6,5 @@ yarn.lock
 package.json
 
 # igonore CI
-circle.yml
+.circleci
 
