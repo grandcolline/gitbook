@@ -41,6 +41,12 @@ jobs:
           command: git config --global user.email "circleci@gh-pages.com"
       - run:
           name: configset2
+          command: mkdir ~/.ssh/known_hosts
+      - run:
+          name: configset2
+          command: touch ~/.ssh/known_hosts ; chmod 644 ~/.ssh/known_hosts
+      - run:
+          name: configset2
           command: ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run:
           name: ssh git
