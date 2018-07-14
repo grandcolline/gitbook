@@ -2,18 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: billryan/gitbook
+      - image: node:latest
         environment:
           TZ: /usr/share/zoneinfo/Asia/Tokyo
     working_directory: /gitbook
     steps:
       - checkout
       - run:
-          name: plugin install
-          command: gitbook install
+          name: npm install
+          command: npm install
       - run:
           name: build
-          command: gitbook build
+          command: npm run build
       - persist_to_workspace:
           root: /gitbook
           paths:
@@ -28,26 +28,20 @@ jobs:
       - attach_workspace:
           at: /gitbook
       - run:
-          name: test
-          command: ls -l
-      - run:
           name: install
           command: npm install
       - run:
-          name: configset2
-          command: mkdir ~/.ssh/
+          name: ssh setting
+          command: |
+            mkdir ~/.ssh/
+            touch ~/.ssh/known_hosts
+            chmod 644 ~/.ssh/known_hosts
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
       - run:
-          name: configset2
-          command: touch ~/.ssh/known_hosts ; chmod 644 ~/.ssh/known_hosts
-      - run:
-          name: configset2
-          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
-      - run:
-          name: configset
-          command: git config --global user.name  "CircleCI"
-      - run:
-          name: configset2
-          command: git config --global user.email "circleci@gh-pages.com"
+          name: user setting
+          command: |
+            git config --global user.name  "CircleCI"
+            git config --global user.email "circleci@gh-pages.com"
       - run:
           name: deploy
           command: npm run deploy
@@ -59,10 +53,11 @@ workflows:
       - build:
           filters:
             branches:
-              only: master 
+              ignore: gh-pages 
       - deploy:
           requires:
             - build
           filters:
             branches:
               only: master 
+
