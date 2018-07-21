@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>npmで管理する · gitbook</title>
+        <title>circleCIでデプロイ · gitbook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ci.html" />
     
-    
-    <link rel="prev" href="test.html" />
+    <link rel="prev" href="npm.html" />
     
 
     </head>
@@ -129,7 +127,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="npm.html">
+        <li class="chapter " data-level="1.2.2" data-path="npm.html">
             
                 <a href="npm.html">
             
@@ -142,7 +140,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="ci.html">
+        <li class="chapter active" data-level="1.2.3" data-path="ci.html">
             
                 <a href="ci.html">
             
@@ -190,7 +188,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >npmで管理する</a>
+        <a href=".." >circleCIでデプロイ</a>
     </h1>
 </div>
 
@@ -205,32 +203,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="npm&#x3067;&#x7BA1;&#x7406;">npm&#x3067;&#x7BA1;&#x7406;</h1>
-<h2 id="packagejson">package.json</h2>
-<pre><code>{
-  &quot;name&quot;: &quot;GitbookDemo&quot;,
-  &quot;scripts&quot;: {
-    &quot;serve&quot;: &quot;gitbook install ; gitbook serve&quot;,
-    &quot;build&quot;: &quot;gitbook install ; gitbook build&quot;,
-    &quot;deploy&quot;: &quot;gh-pages -d _book&quot;
-  },
-  &quot;dependencies&quot;: {
-    &quot;gh-pages&quot;: &quot;^1.2.0&quot;,
-    &quot;gitbook-cli&quot;: &quot;^2.3.2&quot;
-  }
-}
-</code></pre><h2 id="&#x4F7F;&#x3044;&#x65B9;">&#x4F7F;&#x3044;&#x65B9;</h2>
-<h3 id="install">install</h3>
-<pre><code>$ npm install
-</code></pre><p>&#x521D;&#x56DE;&#x304A;&#x3088;&#x3073;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306E;&#x5909;&#x66F4;&#x6642;&#x306E;&#x307F;&#x3067;&#x3044;&#x3044;&#x3068;&#x601D;&#x3046;</p>
-<h3 id="&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x3067;&#x30B5;&#x30FC;&#x30D0;&#x8D77;&#x52D5;">&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x3067;&#x30B5;&#x30FC;&#x30D0;&#x8D77;&#x52D5;</h3>
-<pre><code>$ npm run serve
-</code></pre><h3 id="&#x30D3;&#x30EB;&#x30C9;">&#x30D3;&#x30EB;&#x30C9;</h3>
-<pre><code>$ npm run build
-</code></pre><p><code>_book</code>&#x306B;&#x6210;&#x679C;&#x7269;&#x304C;&#x3067;&#x304D;&#x308B;</p>
-<h3 id="&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#xFF08;gh-pages&#x306B;&#xFF09;">&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#xFF08;gh-pages&#x306B;&#xFF09;</h3>
-<pre><code>$ npm run deploy
-</code></pre><p><code>_book</code>&#x3092;gh-pages&#x30D6;&#x30E9;&#x30F3;&#x30C1;&#x306B;push&#x3059;&#x308B;</p>
+                                <h1 id="circleci&#x3067;&#x30C7;&#x30D7;&#x30ED;&#x30A4;">circleCI&#x3067;&#x30C7;&#x30D7;&#x30ED;&#x30A4;</h1>
+<p>circleCI&#x3067;&#x3001;</p>
+<pre><code>npm run build
+npm run deploy
+</code></pre><p>&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3002;</p>
+<ul>
+<li><a href="https://github.com/grandcolline/gitbook/blob/master/.circleci/config.yml" target="_blank">config.yml</a></li>
+</ul>
+<p>&#x4E0A;&#x8A18;&#x306E;&#x8A2D;&#x5B9A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;&#x306F;&#x3001;<code>gh-pages</code> &#x4EE5;&#x5916;&#x306E;&#x30D6;&#x30E9;&#x30F3;&#x30C1;&#x3067;&#x3001;&#x30D3;&#x30EB;&#x30C9;&#x3092;&#x5B9F;&#x65BD;&#x3002;&#x30D3;&#x30EB;&#x30C9;&#x6210;&#x529F;&#x5F8C;&#x306B; <code>master</code> &#x30D6;&#x30E9;&#x30F3;&#x30C1;&#x306E;&#x5834;&#x5408;&#x306E;&#x307F;&#x30C7;&#x30D7;&#x30ED;&#x30A4;&#x3092;&#x3059;&#x308B;&#x3002;</p>
 
                                 
                                 </section>
@@ -258,14 +239,10 @@
 
             
                 
-                <a href="test.html" class="navigation navigation-prev " aria-label="Previous page: こんな感じで表示されそう">
+                <a href="npm.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: npmで管理する">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="ci.html" class="navigation navigation-next " aria-label="Next page: circleCIでデプロイ">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -274,7 +251,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"npmで管理する","level":"1.2.2","depth":2,"next":{"title":"circleCIでデプロイ","level":"1.2.3","depth":2,"path":"01gitbook/ci.md","ref":"01gitbook/ci.md","articles":[]},"previous":{"title":"こんな感じで表示されそう","level":"1.2.1","depth":2,"path":"01gitbook/test.md","ref":"01gitbook/test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/logo.png","custom-favicon":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"grandcolline","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"gitbook","language":"ja","gitbook":"3.x.x","description":"gitbook demo page"},"file":{"path":"01gitbook/npm.md","mtime":"2018-07-21T08:58:27.469Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-21T08:59:19.736Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"circleCIでデプロイ","level":"1.2.3","depth":2,"previous":{"title":"npmで管理する","level":"1.2.2","depth":2,"path":"01gitbook/npm.md","ref":"01gitbook/npm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-favicon","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":"images/logo.png","custom-favicon":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"grandcolline","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"gitbook","language":"ja","gitbook":"3.x.x","description":"gitbook demo page"},"file":{"path":"01gitbook/ci.md","mtime":"2018-07-21T08:58:27.469Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-21T08:59:19.736Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
