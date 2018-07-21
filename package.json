@@ -3,7 +3,7 @@
   "scripts": {
     "serve": "gitbook install ; gitbook serve",
     "build": "gitbook install ; gitbook build",
-    "deploy": "gh-pages -d _book"
+    "deploy": "gh-pages -d _book --dotfiles true"
   },
   "dependencies": {
     "gh-pages": "^1.2.0",

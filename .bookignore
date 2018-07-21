@@ -5,6 +5,7 @@
 yarn.lock
 package.json
 
-# igonore CI
-.circleci
+# For Git
+.gitignore
+.github
 
